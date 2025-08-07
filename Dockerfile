@@ -3,13 +3,22 @@ FROM eclipse-temurin:17-jdk as builder
 
 WORKDIR /app
 
-# Copy Maven files
+# Install Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy pom.xml first for better caching
 COPY pom.xml .
+
+# Download dependencies (optional, for better caching)
+RUN mvn dependency:go-offline -B
+
+# Copy source code
 COPY src ./src
 
 # Build the application
-RUN chmod +x ./mvnw || true
-RUN ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Runtime stage  
 FROM eclipse-temurin:17-jdk
@@ -17,7 +26,7 @@ FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
 # Copy the built JAR from builder stage
-COPY --from=builder /app/target/master-ecommerce-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
 
