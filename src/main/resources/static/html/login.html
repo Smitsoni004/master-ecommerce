@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Master E-Commerce - Login</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="/javaScript/app.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-white shadow p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold text-gray-900">Master E-Commerce</h1>
+  <nav>
+    <ul class="flex space-x-6 text-gray-700 text-sm font-semibold">
+      <li><a href="index.html" class="hover:text-indigo-600">Home</a></li>
+      <li><a href="#" class="hover:text-indigo-600">Categories</a></li>
+      <li><a href="cart.html" class="hover:text-indigo-600">Cart (<span id="cart-count">0</span>)</a></li>
+      <li><a href="login.html" class="hover:text-indigo-600">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow container mx-auto p-6 max-w-md">
+  <h2 class="text-3xl font-semibold mb-8">Login</h2>
+
+  <form id="login-form" class="bg-white p-6 rounded-lg shadow space-y-6">
+    <div>
+      <label for="email" class="block font-medium text-gray-700">Email</label>
+      <input required type="email" id="email" name="email" class="mt-1 w-full p-2 border border-gray-300 rounded" />
+    </div>
+    <div>
+      <label for="password" class="block font-medium text-gray-700">Password</label>
+      <input required type="password" id="password" name="password" class="mt-1 w-full p-2 border border-gray-300 rounded" />
+    </div>
+    <button type="submit" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded hover:bg-indigo-700 transition">Login</button>
+  </form>
+  <p class="mt-4 text-center text-sm text-gray-600">Not yet registered? <a href="#" class="text-indigo-600 hover:underline">Sign up</a></p>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white shadow p-4 mt-auto text-center text-gray-600">
+  &copy; 2025 Master E-Commerce
+</footer>
+
+<script src="javaScript/app.js"></script>
+<script>
+  document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Login functionality is a demo. Integrate backend API for actual login.');
+  });
+
+  // Cart count update for header
+  document.addEventListener('DOMContentLoaded', () => {
+    window.updateCartCount();
+  });
+</script>
+</body>
+</html>

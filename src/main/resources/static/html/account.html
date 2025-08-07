@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Master E-Commerce</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <nav class="bg-blue-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-3">
+                <div class="flex items-center space-x-6">
+                    <h1 class="text-2xl font-bold">Master</h1>
+                </div>
+                <div class="flex items-center space-x-4 text-sm">
+                    <a href="account.html" class="hover:underline font-semibold">My Account</a>
+                    <a href="#" onclick="logout()" class="hover:underline">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="index.html" class="text-3xl font-bold text-blue-900">Master</a>
+                <div class="flex items-center space-x-6">
+                    <a href="cart.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 18h12M10 21a1 1 0 100 2 1 1 0 000-2zM21 21a1 1 0 100 2 1 1 0 000-2z"></path>
+                        </svg>
+                        <span>Cart</span>
+                        <span id="cart-count" class="bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Account Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-blue-600 rounded-full mx-auto flex items-center justify-center text-white text-2xl font-bold mb-3">
+                                JD
+                            </div>
+                            <h3 class="font-semibold">John Doe</h3>
+                            <p class="text-gray-600 text-sm">john.doe@example.com</p>
+                        </div>
+                        
+                        <nav class="space-y-2">
+                            <a href="#" onclick="showSection('dashboard')" class="account-nav-link bg-blue-50 text-blue-600 block px-4 py-2 rounded font-medium">Dashboard</a>
+                            <a href="#" onclick="showSection('orders')" class="account-nav-link text-gray-700 hover:bg-gray-50 block px-4 py-2 rounded">My Orders</a>
+                            <a href="#" onclick="showSection('profile')" class="account-nav-link text-gray-700 hover:bg-gray-50 block px-4 py-2 rounded">Profile Settings</a>
+                            <a href="#" onclick="showSection('addresses')" class="account-nav-link text-gray-700 hover:bg-gray-50 block px-4 py-2 rounded">Addresses</a>
+                            <a href="#" onclick="showSection('wishlist')" class="account-nav-link text-gray-700 hover:bg-gray-50 block px-4 py-2 rounded">Wishlist</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Account Content -->
+                <div class="lg:col-span-3">
+                    <!-- Dashboard Section -->
+                    <div id="dashboard-section" class="account-section">
+                        <div class="bg-white rounded-lg shadow p-6 mb-6">
+                            <h2 class="text-2xl font-bold mb-6">Account Dashboard</h2>
+                            
+                            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-blue-50 p-6 rounded-lg text-center">
+                                    <div class="text-3xl font-bold text-blue-600">12</div>
+                                    <div class="text-gray-600">Total Orders</div>
+                                </div>
+                                <div class="bg-green-50 p-6 rounded-lg text-center">
+                                    <div class="text-3xl font-bold text-green-600">3</div>
+                                    <div class="text-gray-600">Wishlist Items</div>
+                                </div>
+                                <div class="bg-purple-50 p-6 rounded-lg text-center">
+                                    <div class="text-3xl font-bold text-purple-600">₹45,230</div>
+                                    <div class="text-gray-600">Total Spent</div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="border rounded-lg p-4">
+                                    <h3 class="font-semibold mb-3">Recent Orders</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm">Order #12345</span>
+                                            <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Delivered</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm">Order #12344</span>
+                                            <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Shipped</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border rounded-lg p-4">
+                                    <h3 class="font-semibold mb-3">Account Info</h3>
+                                    <div class="space-y-2 text-sm">
+                                        <div>Member since: January 2024</div>
+                                        <div>Email: john.doe@example.com</div>
+                                        <div>Phone: +91 98765 43210</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orders Section -->
+                    <div id="orders-section" class="account-section hidden">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h2 class="text-2xl font-bold mb-6">My Orders</h2>
+                            
+                            <div class="space-y-4">
+                                <div class="border rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div>
+                                            <h3 class="font-semibold">Order #12345</h3>
+                                            <p class="text-sm text-gray-600">Placed on March 15, 2025</p>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Delivered</span>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://via.placeholder.com/60x60" alt="Product" class="rounded">
+                                        <div class="flex-1">
+                                            <h4 class="font-medium">Apple iPhone 14 Pro</h4>
+                                            <p class="text-sm text-gray-600">Quantity: 1</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-semibold">₹1,29,900</div>
+                                            <button class="text-blue-600 text-sm hover:underline">Track Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Section -->
+                    <div id="profile-section" class="account-section hidden">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h2 class="text-2xl font-bold mb-6">Profile Settings</h2>
+                            
+                            <form class="space-y-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                        <input type="text" value="John" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                        <input type="text" value="Doe" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" value="john.doe@example.com" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                    <input type="tel" value="+91 98765 43210" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                </div>
+                                
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Update Profile</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Other sections can be added similarly -->
+                    <div id="addresses-section" class="account-section hidden">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h2 class="text-2xl font-bold mb-6">My Addresses</h2>
+                            <p class="text-gray-600">Manage your shipping addresses here.</p>
+                        </div>
+                    </div>
+
+                    <div id="wishlist-section" class="account-section hidden">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h2 class="text-2xl font-bold mb-6">My Wishlist</h2>
+                            <p class="text-gray-600">Your saved items will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Master E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.account-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Remove active state from all nav links
+            document.querySelectorAll('.account-nav-link').forEach(link => {
+                link.classList.remove('bg-blue-50', 'text-blue-600');
+                link.classList.add('text-gray-700');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.remove('hidden');
+            
+            // Add active state to clicked nav link
+            event.target.classList.add('bg-blue-50', 'text-blue-600');
+            event.target.classList.remove('text-gray-700');
+        }
+
+        function logout() {
+            alert('Logged out successfully!');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

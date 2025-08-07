@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Master E-Commerce</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header (same as other pages) -->
+    <nav class="bg-blue-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-3">
+                <div class="flex items-center space-x-6">
+                    <h1 class="text-2xl font-bold">Master</h1>
+                </div>
+                <div class="flex items-center space-x-4 text-sm">
+                    <a href="account.html" class="hover:underline">My Account</a>
+                    <a href="login.html" class="hover:underline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-3xl font-bold text-blue-900">Master</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="cart.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 18h12M10 21a1 1 0 100 2 1 1 0 000-2zM21 21a1 1 0 100 2 1 1 0 000-2z"></path>
+                        </svg>
+                        <span>Cart</span>
+                        <span id="cart-count" class="bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Banner -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 id="category-title" class="text-4xl font-bold mb-4">Electronics</h1>
+            <p id="category-description" class="text-xl">Discover the latest in technology and gadgets</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-8">
+                <div class="text-sm text-gray-600">
+                    Showing <span id="results-count">0</span> results
+                </div>
+                <select id="sort-select" onchange="sortCategoryProducts()" class="border border-gray-300 rounded px-3 py-2">
+                    <option value="default">Sort by</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Customer Rating</option>
+                </select>
+            </div>
+            
+            <div id="category-products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Category products will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Master E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('cat');
+            
+            if (category) {
+                loadCategoryProducts(category);
+            }
+        });
+    </script>
+</body>
+</html>

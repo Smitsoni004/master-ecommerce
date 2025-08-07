@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master E-Commerce - Online Shopping</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<script src="/javaScript/app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-blue-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-3">
+                <div class="flex items-center space-x-6">
+                    <h1 class="text-2xl font-bold">Master</h1>
+                    <div class="hidden md:flex items-center space-x-4 text-sm">
+                        <span>Free delivery on orders above ₹499</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 text-sm">
+                    <a href="account.html" class="hover:underline">My Account</a>
+                    <a href="login.html" class="hover:underline">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-3xl font-bold text-blue-900">Master</a>
+                    <div class="hidden md:flex items-center bg-gray-100 rounded-lg px-4 py-2 flex-1 max-w-md">
+                        <input type="search" placeholder="Search for products, brands and more" 
+                               class="bg-transparent flex-1 outline-none text-sm" id="search-input">
+                        <button onclick="searchProducts()" class="text-blue-600 hover:text-blue-800">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="cart.html" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 18h12M10 21a1 1 0 100 2 1 1 0 000-2zM21 21a1 1 0 100 2 1 1 0 000-2z"></path>
+                        </svg>
+                        <span>Cart</span>
+                        <span id="cart-count" class="bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Navigation -->
+    <nav class="bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center space-x-8 py-3 text-sm overflow-x-auto">
+                <a href="categories.html?cat=electronics" class="whitespace-nowrap hover:text-blue-600">Electronics</a>
+                <a href="categories.html?cat=fashion" class="whitespace-nowrap hover:text-blue-600">Fashion</a>
+                <a href="categories.html?cat=home" class="whitespace-nowrap hover:text-blue-600">Home & Kitchen</a>
+                <a href="categories.html?cat=books" class="whitespace-nowrap hover:text-blue-600">Books</a>
+                <a href="categories.html?cat=sports" class="whitespace-nowrap hover:text-blue-600">Sports</a>
+                <a href="categories.html?cat=beauty" class="whitespace-nowrap hover:text-blue-600">Beauty</a>
+                <a href="categories.html?cat=toys" class="whitespace-nowrap hover:text-blue-600">Toys</a>
+                <a href="categories.html?cat=grocery" class="whitespace-nowrap hover:text-blue-600">Grocery</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4">Great Deals on Everything</h2>
+                <p class="text-xl mb-8">Discover amazing products at unbeatable prices</p>
+                <a href="products.html" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="text-center group cursor-pointer" onclick="location.href='categories.html?cat=electronics'">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-blue-200 transition">
+                        <svg class="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 6H3a1 1 0 00-1 1v10a1 1 0 001 1h18a1 1 0 001-1V7a1 1 0 00-1-1zM4 16V8h16v8H4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium">Electronics</h3>
+                </div>
+                <div class="text-center group cursor-pointer" onclick="location.href='categories.html?cat=fashion'">
+                    <div class="bg-pink-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-pink-200 transition">
+                        <svg class="w-10 h-10 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium">Fashion</h3>
+                </div>
+                <div class="text-center group cursor-pointer" onclick="location.href='categories.html?cat=home'">
+                    <div class="bg-green-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-green-200 transition">
+                        <svg class="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium">Home</h3>
+                </div>
+                <div class="text-center group cursor-pointer" onclick="location.href='categories.html?cat=books'">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-yellow-200 transition">
+                        <svg class="w-10 h-10 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium">Books</h3>
+                </div>
+                <div class="text-center group cursor-pointer" onclick="location.href='categories.html?cat=sports'">
+                    <div class="bg-orange-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-orange-200 transition">
+                        <svg class="w-10 h-10 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium">Sports</h3>
+                </div>
+                <div class="text-center group cursor-pointer" onclick="location.href='categories.html?cat=beauty'">
+                    <div class="bg-purple-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-purple-200 transition">
+                        <svg class="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium">Beauty</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold">Featured Products</h2>
+                <a href="products.html" class="text-blue-600 hover:underline">View All</a>
+            </div>
+            <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8">Today's Best Deals</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Electronics Sale</h3>
+                    <p class="mb-4">Up to 50% off on smartphones and laptops</p>
+                    <a href="categories.html?cat=electronics" class="bg-white text-red-500 px-4 py-2 rounded font-semibold">Shop Now</a>
+                </div>
+                <div class="bg-gradient-to-r from-green-500 to-blue-500 text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Fashion Week</h3>
+                    <p class="mb-4">Trendy clothes at amazing prices</p>
+                    <a href="categories.html?cat=fashion" class="bg-white text-green-500 px-4 py-2 rounded font-semibold">Shop Now</a>
+                </div>
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Home Essentials</h3>
+                    <p class="mb-4">Transform your home with our collection</p>
+                    <a href="categories.html?cat=home" class="bg-white text-yellow-500 px-4 py-2 rounded font-semibold">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Master</h3>
+                    <p class="text-gray-400">Your trusted online shopping destination with quality products and great service.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Customer Service</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white">Returns</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">My Account</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="account.html" class="hover:text-white">My Profile</a></li>
+                        <li><a href="account.html" class="hover:text-white">Order History</a></li>
+                        <li><a href="cart.html" class="hover:text-white">Shopping Cart</a></li>
+                        <li><a href="account.html" class="hover:text-white">Wishlist</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="categories.html?cat=electronics" class="hover:text-white">Electronics</a></li>
+                        <li><a href="categories.html?cat=fashion" class="hover:text-white">Fashion</a></li>
+                        <li><a href="categories.html?cat=home" class="hover:text-white">Home & Kitchen</a></li>
+                        <li><a href="categories.html?cat=books" class="hover:text-white">Books</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Master E-Commerce. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
