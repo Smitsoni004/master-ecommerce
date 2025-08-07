@@ -1,5 +1,5 @@
-# Build stage
-FROM eclipse-temurin:17-jdk as builder
+# Build stage - Java 21 image use करें
+FROM eclipse-temurin:21-jdk as builder
 
 WORKDIR /app
 
@@ -11,17 +11,14 @@ RUN apt-get update && \
 # Copy pom.xml first for better caching
 COPY pom.xml .
 
-# Download dependencies (optional, for better caching)
-RUN mvn dependency:go-offline -B
-
 # Copy source code
 COPY src ./src
 
 # Build the application
 RUN mvn clean package -DskipTests
 
-# Runtime stage  
-FROM eclipse-temurin:17-jdk
+# Runtime stage - Java 21 runtime image
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
