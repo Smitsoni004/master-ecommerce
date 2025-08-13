@@ -11,7 +11,8 @@ import lombok.*;
 @Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ✅ Ye sahi hai
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
     private String name;
